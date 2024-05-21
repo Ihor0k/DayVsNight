@@ -175,14 +175,16 @@ impl Default for State {
         let day_x = macroquad::rand::gen_range(BALL_RADIUS, (FIELD_SIZE / 2) as f32 - BALL_RADIUS);
         let day_y = macroquad::rand::gen_range(BALL_RADIUS, FIELD_SIZE as f32 - BALL_RADIUS);
         let day_pos = PointF::new(day_x, day_y);
-        let day_vec = PointF::new(macroquad::rand::gen_range(0., 1.), macroquad::rand::gen_range(0., 1.));
+        let day_vec = PointF::new(macroquad::rand::gen_range(0.5, 1.), macroquad::rand::gen_range(-1., 1.));
         let day_ball = Ball::new(day_pos, day_vec, true);
 
         let night_x = macroquad::rand::gen_range((FIELD_SIZE / 2) as f32 + BALL_RADIUS, FIELD_SIZE as f32 - BALL_RADIUS);
         let night_y = macroquad::rand::gen_range(BALL_RADIUS, FIELD_SIZE as f32 - BALL_RADIUS);
         let night_pos = PointF::new(night_x, night_y);
-        let night_vec = PointF::new(macroquad::rand::gen_range(0., 1.), macroquad::rand::gen_range(0., 1.));
+        let night_vec = PointF::new(macroquad::rand::gen_range(-1., -0.5), macroquad::rand::gen_range(-1., 1.));
         let night_ball = Ball::new(night_pos, night_vec, false);
+        println!("{:?}", day_vec);
+        println!("{:?}", night_vec);
 
         State { field, day_ball, night_ball }
     }
