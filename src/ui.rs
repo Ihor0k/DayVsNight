@@ -13,7 +13,7 @@ pub struct UI {
 impl UI {
     pub fn draw(&self, state: &State) {
         let (w, h) = screen_size();
-        let size = std::cmp::min_by(w, h, |a, b| a.partial_cmp(&b).unwrap()) * 0.6;
+        let size = std::cmp::min_by(w, h, |a, b| a.partial_cmp(&b).unwrap()) * 0.8;
         let size = size - size % FIELD_SIZE as f32;
         let cell_size = size / FIELD_SIZE as f32;
 
