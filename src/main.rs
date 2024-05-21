@@ -41,8 +41,11 @@ async fn main() {
     };
 
     loop {
-        let dt = get_frame_time();
+        let mut dt = get_frame_time();
 
+        if dt > 1. {
+            dt = dt % 1.
+        }
         state.next_step(dt * SPEED);
 
         ui.draw(&state);
