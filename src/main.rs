@@ -12,7 +12,7 @@ const DAY_COLOR_HEX: u32 = 0xCBD9D9;
 const NIGHT_COLOR_HEX: u32 = 0x16313E;
 
 const BACKGROUND_COLOR_HEX: u32 = 0xE7EBEC;
-const SPEED: f32 = 50.;
+const SPEED: f32 = 40.;
 
 fn window_conf() -> Conf {
     Conf {
