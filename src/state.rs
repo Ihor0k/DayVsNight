@@ -196,6 +196,7 @@ impl State {
 }
 
 fn ball_next_step(state: &mut State, dist: f32, side: bool) {
+    if dist <= 0. { return; }
     let (ball, other_ball) = if side { (&mut state.day_ball, &state.night_ball) } else { (&mut state.night_ball, &state.day_ball) };
     let field = &mut state.field;
     let ball_pos = ball.pos;
@@ -280,9 +281,7 @@ fn ball_next_step(state: &mut State, dist: f32, side: bool) {
         }
         ball.pos = new_ball_pos;
         ball.vec = new_ball_vec;
-        if dist_moved < dist {
-            ball_next_step(state, dist - dist_moved, side);
-        }
+        ball_next_step(state, dist - dist_moved, side);
     } else {
         ball.pos += ball_displacement;
     }
