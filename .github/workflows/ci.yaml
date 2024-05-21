@@ -21,9 +21,9 @@ jobs:
 
       - name: Prepare deployment directory
         run: |
-          mkdir -p public
-          cp target/wasm32-unknown-unknown/release/DayVsNight.wasm public/
-          cp index.html public/
+          mkdir ./public
+          cp ./target/wasm32-unknown-unknown/release/DayVsNight.wasm ./public/
+          cp ./index.html ./public/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -35,6 +35,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      pages: write
+      id-token: write
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
